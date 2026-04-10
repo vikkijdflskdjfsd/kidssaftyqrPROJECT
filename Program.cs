@@ -15,12 +15,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection"),
         sqlOptions => sqlOptions.EnableRetryOnFailure()
     ));
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
 
 var app = builder.Build();
 
 // ✅ Middleware
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
 
 app.UseSession();
