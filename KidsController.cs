@@ -13,15 +13,7 @@ public class KidsController : Controller
 
     public IActionResult Dashboard()
     {
-        try
-        {
-            var kids = _context.Kids.ToList();
-            return View(kids);
-        }
-        catch (Exception ex)
-        {
-            return Content("ERROR: " + ex.Message);
-        }
+        return View();
     }
 
     public IActionResult Add()
