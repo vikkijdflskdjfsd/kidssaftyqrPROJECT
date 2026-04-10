@@ -1,0 +1,14 @@
+﻿@{
+    Layout = null;
+}
+<link rel="stylesheet" href="/css/site.css" />
+
+<div class="card">
+    <h2>Teacher Login</h2>
+    <form method="post">
+        <input name="username" placeholder="Username" />
+        <input name="password" type="password" placeholder="Password" />
+        <button type="submit">Login</button>
+    </form>
+    <p style="color:red">@ViewBag.Error</p>
+</div>

@@ -1,0 +1,39 @@
+﻿<link rel="stylesheet" href="/css/site.css" />
+
+<div class="card">
+    <h2>@Model.Name</h2>
+    <p>@Model.School</p>
+
+    <br />
+
+    <a href="tel:@Model.ParentPhone">
+        <button style="background:green;color:white;">📞 Call Parent</button>
+    </a>
+
+    <br /><br />
+
+    <button onclick="sendAlert()" style="background:red;color:white;">
+        🚨 Send Alert
+    </button>
+
+    <script>
+        function sendAlert() {
+            alert("🚨 Alert sent to parent!");
+        }
+    </script>
+    <button onclick="sendAlert()" style="background:red;color:white;">
+        🚨 Send Alert
+    </button>
+
+    <script>
+        function sendAlert() {
+            fetch('/QR/SendAlert?code=@Model.Code', {
+                method: 'POST'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    alert("🚨 Alert sent to parent!");
+                });
+        }
+    </script>
+</div>
