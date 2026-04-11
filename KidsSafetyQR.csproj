@@ -10,8 +10,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-  <Content Include="Views\**\*.cshtml" CopyToPublishDirectory="PreserveNewest" />
+     <Content Include="wwwroot\**\*" CopyToOutputDirectory="PreserveNewest" />
     </PackageReference>
     <PackageReference Include="QRCoder" Version="1.8.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
