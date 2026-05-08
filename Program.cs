@@ -3,19 +3,17 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ IMPORTANT FOR RENDER
+// ✅ Render Port Binding
 builder.WebHost.UseUrls("http://0.0.0.0:10000");
 
 // ✅ MVC + Views
 builder.Services.AddControllersWithViews();
 
-// ✅ Session
-builder.Services.AddSession();
-
+// ✅ Session Support
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 
-// ✅ DB Connection
+// ✅ SQL Server Connection
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection"),
@@ -23,6 +21,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     ));
 
 var app = builder.Build();
+
+// ✅ SHOW ACTUAL ERRORS
+app.UseDeveloperExceptionPage();
 
 // ✅ Middleware
 app.UseStaticFiles();
